@@ -1,0 +1,8 @@
+{
+  "name": "cetus-erp",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lncitador/cetus-erp.git",
+  "author": "lncitador <walaffonofre@icloud.com>",
+  "license": "MIT"
+}
