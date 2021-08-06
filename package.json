@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "https://github.com/lncitador/cetus-erp.git",
   "author": "lncitador <walaffonofre@icloud.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
 }
