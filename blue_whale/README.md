@@ -1,4 +1,4 @@
-# cetus-erp
+# cetus-erp: Blue Whale
 
 this project is an MVP for an enterprise purchasing system.
 
