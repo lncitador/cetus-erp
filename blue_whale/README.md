@@ -2,6 +2,50 @@
 
 this project is an MVP for an enterprise purchasing system.
 
+## User
+
+### Entitie
+
+| User       | type      |
+|------------|-----------|
+| id         | uuid      |
+| first_name | varchar   |
+| last_name  | varchar   |
+| email      | varchar   |
+| password   | varchar   |
+| role       | varchar   |
+| avatar     | varchar   |
+| created_at | timestamp |
+| updated_at | timestamp |
+
+```javascript
+type role = "customer" | "provider" | "supplier" | "master";
+```
+
+#### repository
+
+```javascript
+create(first_name, last_name, email, password): Promise<User>
+findByEmail(email): Promise<User>
+findById(id): Promise<User>
+```
+
+**Functional Requirement** 🚥
+
+- [ ] it shold be able create user
+- [ ] it sholdn't be able to create user if already email exist
+- [ ] it shold be able possible to give a role to a user.
+- [ ] it shold be able update photo user user
+
+**Non-Functional Requirement** 🏗
+
+- [ ] an email provider has to be implemented!
+- [ ] an storage provider has to be implemented!
+
+**Business Rules** 💼
+
+- the user has to confirm the registration by email
+
 ## Customer
 
 ### Entitie
@@ -45,40 +89,19 @@ findById(id): Promise<Customer>
   - when created a user the password can be exchanged by the same.
 - the provider client registers and authenticates by email to access the plataform.
 
-## User
+#### views
 
-### Entitie
+- cadastro de usuarios
+  - cadrastro de novos clientes
+  - cadastro de funcionarios
+  - cadastro de fornecedores
+  
+- requisiçoes.
+  - compra pontual
+  - compra recorente
 
-| User       | type      |
-|------------|-----------|
-| id         | uuid      |
-| first_name | varchar   |
-| last_name  | varchar   |
-| email      | varchar   |
-| password   | varchar   |
-| avatar     | varchar   |
-| created_at | timestamp |
-| updated_at | timestamp |
-
-#### repository
-
-```javascript
-create(first_name, last_name, email, password): Promise<User>
-findByEmail(email): Promise<User>
-findById(id): Promise<User>
-```
-
-**Functional Requirement** 🚥
-
-- [ ] it shold be able create user
-- [ ] it sholdn't be able to create user if already email exist
-- [ ] it shold be able update photo user user
-
-**Non-Functional Requirement** 🏗
-
-- [ ] an email provider has to be implemented!
-- [ ] an storage provider has to be implemented!
-
-**Business Rules** 💼
-
-- the user has to confirm the registration by email
+- cadastro de item
+  - pre-cadastro pelo cliente
+  - confirmação de cadastro de item
+  - 
+#### macro
