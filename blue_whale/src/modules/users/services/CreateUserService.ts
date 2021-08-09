@@ -1,8 +1,13 @@
 import IUser from "../models/IUser";
+import IHashProvider from "../providers/models/IHashProvider";
 import { IUsersDTO, IUsersRepository } from "../repositories/IUsersRepository";
 
 class CreateUserService {
-  constructor(private UsersRepository: IUsersRepository) {}
+  constructor(
+    private usersRepository: IUsersRepository,
+
+    private hashProvider: IHashProvider
+  ) {}
 
   public async execute({
     first_name,
@@ -10,11 +15,13 @@ class CreateUserService {
     email,
     password,
   }: IUsersDTO): Promise<IUser> {
-    const customer = await this.UsersRepository.create({
+    const hashedPassword = await this.hashProvider.generatehash(password);
+
+    const customer = await this.usersRepository.create({
       first_name,
       last_name,
       email,
-      password,
+      password: hashedPassword,
     });
 
     return customer;

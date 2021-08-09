@@ -1,14 +1,20 @@
+import { FakeHashProvider } from "../fakes/providers/FakeHashProvider";
 import { FakerUsersRepository } from "../fakes/repositories/FakerUsersRepository";
 import { IUsersDTO } from "../repositories/IUsersRepository";
 import { CreateUserService } from "./CreateUserService";
 
 let fakerUsersRepository: FakerUsersRepository;
+let fakeHashProvider: FakeHashProvider;
 let createUserService: CreateUserService;
 
 describe("Create User", () => {
   beforeEach(() => {
     fakerUsersRepository = new FakerUsersRepository();
-    createUserService = new CreateUserService(fakerUsersRepository);
+    fakeHashProvider = new FakeHashProvider();
+    createUserService = new CreateUserService(
+      fakerUsersRepository,
+      fakeHashProvider
+    );
   });
 
   it("should be able create user", async () => {
