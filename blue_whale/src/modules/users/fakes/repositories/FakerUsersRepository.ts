@@ -28,6 +28,26 @@ class FakerUsersRepository implements IUsersRepository {
 
     return user;
   }
+
+  public async findByEmail(email: string): Promise<IUser> {
+    const user = this.Users.find((user) => user.email === email);
+
+    return user;
+  }
+
+  public async findById(id: string): Promise<IUser> {
+    const user = this.Users.find((user) => user.id === id);
+
+    return user;
+  }
+
+  public async save(user: IUser): Promise<IUser> {
+    const findIndex = this.Users.findIndex((index) => index.id === user.id);
+
+    this.Users[findIndex] = user;
+
+    return user;
+  }
 }
 
 export { FakerUsersRepository };
