@@ -22,6 +22,10 @@ export class CreateCustomer1628376926874 implements MigrationInterface {
             type: "varchar",
           },
           {
+            name: "order",
+            type: "varchar",
+          },
+          {
             name: "email",
             type: "varchar",
           },

@@ -4,6 +4,7 @@ export default interface IUser {
   last_name: string;
   email: string;
   password: string;
+  role: "customer" | "providers" | "supplier" | "master";
   avatar: string;
   created_at: Date;
   updated_at: Date;
